@@ -49,16 +49,16 @@
     results.forEach(item=> {
         var container = document.getElementById("Results_List").insertAdjacentHTML('beforeend',`
 
-        <div class="Card" id="${item.id}" style="width:100%; margin-bottom: 20px; ">
-            <div class="Card_Header" style="background-color: ${item.agency.brandingColors.primary}; border-radius: 10px 10px 0 0; padding:10px; text-align: left">
+        <div class="Card" id="${item.id}">
+            <div class="Card_Header" style="background-color: ${item.agency.brandingColors.primary};">
                 <img src="${item.agency.logo}"/>
             </div>
             <div class="Card_Body" style="background-color: ${item.agency.brandingColors.primary}">
                 <img src="${item.mainImage}" style="max-width: 100%"/>
             </div>
-            <div class="Card_Footer" style="background-color: ${item.agency.brandingColors.primary}; border-radius: 0 0 10px 10px; padding: 10px">
+            <div class="Card_Footer" style="background-color: ${item.agency.brandingColors.primary}; ">
                 <button class="Results_Button" id="${item.id}_Button">Add Property</button>
-                <div class="Card_Price" style="text-align: left">${item.price}</div>
+                <div class="Card_Price">${item.price}</div>
             </div>
         </div>
         `)
@@ -70,16 +70,16 @@
         var container = document.getElementById("Property_List").insertAdjacentHTML('beforeend',`
         
 
-        <div class="Card" id="${item.id}" style="width:100%; margin-bottom: 20px; margin-left: auto; margin-right: auto">
-            <div class="Card_Header" style="background-color: ${item.agency.brandingColors.primary}; border-radius: 10px 10px 0 0; padding:10px; text-align: left">
+        <div class="Card" id="${item.id}">
+            <div class="Card_Header" style="background-color: ${item.agency.brandingColors.primary};">
                <img src="${item.agency.logo}"/>
             </div>
             <div class="Card_Body" style="background-color: ${item.agency.brandingColors.primary}">
                 <img src="${item.mainImage}" style="max-width: 100%"/>
             </div>
-            <div class="Card_Footer" style="background-color: ${item.agency.brandingColors.primary}; border-radius: 0 0 10px 10px; padding: 10px">
+            <div class="Card_Footer" style="background-color: ${item.agency.brandingColors.primary};">
                 <button  class="Saved_Button" id="${item.id}_Button">Remove Property</button>
-                <div class="Card_Price" style="color:white; text-align: left">${item.price}</div>
+                <div class="Card_Price" style="color:white;">${item.price}</div>
             </div>
         </div>
 
@@ -97,6 +97,9 @@
     var Button_3=document.getElementById("3_Button");
     var saved_Card_3=Card_3.cloneNode(true);
     saved_Card_3.id="saved_3_Card"
+    var saved_Card_3_Button=saved_Card_3.childNodes[5].childNodes[1];
+    saved_Card_3_Button.className="Saved_Button";
+
     Card_3.onmouseover=function(){
         Button_3.style.visibility="visible";
     }
@@ -109,6 +112,9 @@
     var Button_1=document.getElementById("1_Button");
     var saved_Card_1=Card_1.cloneNode(true);
     saved_Card_1.id="saved_1_Card";
+    var saved_Card_1_Button=saved_Card_1.childNodes[5].childNodes[1];
+    saved_Card_1_Button.className="Saved_Button";
+    
     Card_1.onmouseover=function(){
         Button_1.style.visibility="visible";
     }
@@ -121,6 +127,10 @@
     var Button_2=document.getElementById("2_Button");
     var saved_Card_2=Card_2.cloneNode(true);
     saved_Card_2.id="saved_2_Card"
+    var saved_Card_2_Button=saved_Card_2.childNodes[5].childNodes[1];
+    saved_Card_2_Button.className="Saved_Button";
+
+
     Card_2.onmouseover=function(){
         Button_2.style.visibility="visible";
     }
@@ -142,11 +152,6 @@
 
     Button_1.onclick=function(){
         if(Button_1.className=="Results_Button"){
-
-//            var saved_Card_1_Button=saved_Card_1.getElementsByTagName("Button");
-//            saved_Card_1_Button.className="Saved_Button";
-//            saved_Card_1_Button.id="Saved_Card_1_Button";
-
             property_list.appendChild(saved_Card_1);
         }
     }
@@ -166,6 +171,44 @@
     Button_4.onclick=function(){
             property_list.removeChild(Card_4);
     }
+
+    
+
+
+    saved_Card_1.onmouseover=function(){
+        saved_Card_1_Button.style.visibility="visible";
+    }
+    saved_Card_1.onmouseout=function(){
+        saved_Card_1_Button.style.visibility="hidden";
+    }
+    saved_Card_1_Button.onclick=function(){
+        property_list.removeChild(saved_Card_1);
+    }
+    
+
+
+    saved_Card_2.onmouseover=function(){
+        saved_Card_2_Button.style.visibility="visible";
+    }
+    saved_Card_1.onmouseout=function(){
+        saved_Card_2_Button.style.visibility="hidden";
+    }
+    saved_Card_2_Button.onclick=function(){
+        property_list.removeChild(saved_Card_2);
+    }
+
+
+
+    saved_Card_3.onmouseover=function(){
+        saved_Card_3_Button.style.visibility="visible";
+    }
+    saved_Card_3.onmouseout=function(){
+        saved_Card_3_Button.style.visibility="hidden";
+    }
+    saved_Card_3_Button.onclick=function(){
+        property_list.removeChild(saved_Card_3);
+    }
+
 
 
 

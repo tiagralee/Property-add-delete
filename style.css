@@ -1,0 +1,35 @@
+.Results_Button {
+    width: 70%;
+    background-color: green; 
+    border-radius: 25px; 
+    visibility:hidden;
+}
+
+.Saved_Button {
+    width: 70%; 
+    background-color: red; 
+    border-radius: 25px; 
+    visibility:hidden;
+}
+
+.Card {
+  width:100%; 
+  margin-bottom: 20px; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.Card_Header {
+  border-radius: 10px 10px 0 0; 
+  padding:10px; 
+  text-align: left;
+}
+
+.Card_Footer {
+  border-radius: 0 0 10px 10px; 
+  padding: 10px;
+}
+
+.Card_Price {
+  text-align: left;
+}
